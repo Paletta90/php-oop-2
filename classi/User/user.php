@@ -1,10 +1,10 @@
 <?php 
 
     class User {
-        public $name;
-        public $sign;
-        public $expiryCard;
-        public $sconto;
+        protected $name;
+        protected $sign;
+        protected $expiryCard;
+        protected $sconto;
 
         // Costruttore
         public function __construct($_name, $_sign, $_expiryCard) {

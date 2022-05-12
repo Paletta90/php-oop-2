@@ -1,8 +1,8 @@
 <?php 
 
     class Products{
-        public $name;
-        public $price;
+        protected $name;
+        protected $price;
 
         // Costruttore
         public function __construct($_name, $_price){

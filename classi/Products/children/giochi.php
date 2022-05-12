@@ -2,7 +2,7 @@
 
 // include __DIR__ . './../products.php';
 class Giochi extends Products {
-    public $size;
+    protected $size;
 
     // Costruttore
     public function __construct($_name, $_price, $_size) {

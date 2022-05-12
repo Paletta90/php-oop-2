@@ -2,7 +2,6 @@
 
     // Classe Padre Products
     include __DIR__ . '../classi/Products/products.php';
-
     echo '<h4>' . 'Prodotti da acquistare: ' . '</h4>';
 
     // Food
@@ -14,6 +13,7 @@
     echo '<p>Prezzo: ' . $crocchette -> getPrice() . '$</p>';
     echo '<p>Scadenza: ' . $crocchette -> getExpiryDate() . '</p>';
     echo '<p>Consumo: ' . $crocchette -> getCalorie() . 'Kcal</p>';
+    echo '<p>Disponibilità: ' . $crocchette -> getDisponibilità() . '</p>';
 
     // Giochi
     include __DIR__ . '../classi/Products/children/giochi.php';
@@ -26,13 +26,13 @@
 
     // User
     include __DIR__ . '../classi/User/user.php';
-    $utente = new User('Davide', false, '05-24');
+    $utente = new User('Davide', true, '05-24');
     // Stampo i dati di utente
     echo '<h4>' . 'Dati acquirente: ' . '</h4>';
     echo '<p>Nome: ' . $utente -> getName() . '</p>';
     echo '<p>' . $utente -> getSign() . '</p>'; 
     echo '<p>Scadenza carta:  ' . $utente -> getExpiryCard() . '</p>';
-    if( $utente -> expiryCard > date('m-y') ) {
+    if( $utente -> getExpiryCard() > date('m-y') ) {
         echo '<h6>L\'utente può pagare</h6>';
     }else{
         echo '<h6>Carta scaduta</h6>';
@@ -42,7 +42,7 @@
     $spesaTotale = $crocchette -> getPrice() + $osso -> getPrice();
     echo '<h5>Totale spesa: ' . ( $spesaTotale )  . '$</h5>';
     
-    if($utente -> sign == true){
+    if($utente -> getSign() == true){
         echo '<h5>Totale scontato: ' . ( $spesaTotale - $spesaTotale * $utente -> getSconto() )  . '$</h5>';
     }
 
