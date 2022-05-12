@@ -6,7 +6,7 @@
 
     // Food
     include __DIR__ . '../classi/Products/children/food.php';
-    $crocchette = new Food('Crocchette per cani', 25, '05-2023', 1200);
+    $crocchette = new Food('Crocchette per cani', 25, '05-2023', 1200, '05', '09');
     // Stampo i dati di crocchette
     echo '<h5>' . 'Prodotto 1:  ' . '</h5>';
     echo '<p>Nome prodotto: ' . $crocchette -> getName() . '</p>';
