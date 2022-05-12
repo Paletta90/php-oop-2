@@ -1,14 +1,16 @@
 <?php 
 
-    include __DIR__ . './../../trait/dati.php';
+    // include __DIR__ . './../../trait/dati.php';
 
     class CreditCard{
+        protected $name;
         protected $number;
         protected $expiryCard;
         protected $money;
+        protected $validCard;
 
         // Uso il trait Dati
-        use Dati;
+        // use Dati;
 
         public function __construct($_name, $_number, $_expiryCard, $_money){
 
@@ -20,6 +22,9 @@
         }
 
         // Setter
+        public function setName($_name){
+            $this -> name = $_name;
+        }
         public function setNumber($_number){
             $this -> number = $_number;
         }
@@ -32,14 +37,26 @@
 
 
         // Getter
+        public function getName(){
+            return $this -> name;
+        }
         public function getNumber(){
             return $this -> number;
         }
-        public function getExpiryDate(){
+        public function getExpiryCard(){
             return $this -> expiryCard;
         }
         public function getMoney(){
             return $this -> money;
+        }
+
+        // Funzioni
+        public function isValid(){
+            if($this -> expiryCard > date('m-y')){
+                $this -> isValid = true;
+            }else{
+                $this -> isValid = false;
+            }
         }
     }
 

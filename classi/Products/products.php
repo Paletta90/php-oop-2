@@ -3,7 +3,6 @@
     include __DIR__ . './../../trait/dati.php';
 
     class Products{
-        // protected $name;
         protected $price;
         protected $quantità;
 
@@ -17,20 +16,31 @@
         }
 
         // Setter
-        // public function setName($_name){
-        //      $this -> name = $_name;
-        // }
         public function setPrice($_price){
-             $this -> price = $_price;
+
+            // Il dato da inserire deve essere un numero
+            if(is_numeric($_price)){
+
+                // Il numero deve essere maggiore di zero
+                if($_price > 0){
+
+                    $this -> price = $_price;
+
+                }else{
+                    throw new Exception('Inserire un numero maggiore di zero');
+
+                }
+
+            }else{
+                throw new Exception('Non è stato inserito un numero');
+            }
+             
         }
         public function setQuantità($_quantità){
             $this -> quantità = $_quantità;
         }
 
         // Getter
-        // public function getName(){
-        //     return $this -> name;
-        // }
         public function getPrice(){
             return $this -> price;
         }
