@@ -3,14 +3,12 @@
     class User {
         protected $name;
         protected $sign;
-        protected $expiryCard;
         protected $sconto;
 
         // Costruttore
-        public function __construct($_name, $_sign, $_expiryCard) {
+        public function __construct($_name, $_sign) {
             $this -> setName($_name);
             $this -> setSign($_sign);
-            $this -> setExpiryCard($_expiryCard);
             $this -> setSconto();
         }
             // Setter
@@ -21,12 +19,8 @@
             public function setSign($_sign) {
                 return $this -> sign = $_sign;
             }
-
-            public function setExpiryCard($_expiryCard) {
-                return $this -> expiryCard = $_expiryCard;
-            }
-
             public function setSconto() {
+
                 // Se l'user iscritto sconto del 20%
                 if($this -> sign == true){
                     $this -> sconto = 0.2;
@@ -40,21 +34,15 @@
             public function getName() {
                 return $this -> name;
             }
-
             public function getSign() {
 
                 if($this -> sign == true){
-                    return 'Utente inscritto';
+                    return 'Utente inscritto - ha diritto a 20% di sconto';
                 }else{
-                    return 'Utente non inscritto';
+                    return 'Utente non inscritto - non ha diritto allo sconto';
                 }
 
             }
-
-            public function getExpiryCard() {
-                return $this -> expiryCard;
-            }
-
             public function getSconto() {
                 return $this -> sconto;
             }

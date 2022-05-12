@@ -1,7 +1,5 @@
 <?php 
 
-    // include __DIR__ . './../products.php';
-
     class Food extends Products{
         protected $expiryDate;
         protected $calorie;
@@ -9,8 +7,9 @@
         protected $meseB;
         protected $disponibilità;
 
+
         // Costruttore
-        public function __construct($_name, $_price, $_expiryDate, $_calorie, $_meseA, $_meseB){
+        public function __construct($_name, $_price, $_quantità, $_expiryDate, $_calorie, $_meseA, $_meseB){
             
             // Setter padre
             parent:: __construct($_name, $_price);
@@ -21,6 +20,7 @@
             $this -> setDisponibilità();
             $this -> setMesi($_meseA, $_meseB);
             $this -> setDisponibilità();
+            $this -> setQuantità($_quantità);
         }
 
         // Setter
@@ -35,12 +35,17 @@
             $this -> meseB = $_meseB;
         }
         public function setDisponibilità(){
-            // Disponibilità solo tra meseA e meseB
-             if(date('m') >= $this -> meseA && date('m') <= $this -> meseB){
-                 $this -> disponibilità = 'Si';
-             }else{
-                 $this -> disponibilità = 'No';
-             }
+            // if($this -> meseA < $this -> meseB){
+                // Disponibilità solo tra meseA e meseB
+                if(date('m') >= $this -> meseA && date('m') <= $this -> meseB){
+                    $this -> disponibilità = 'Si';
+                }else{
+                    $this -> disponibilità = 'No';
+                }
+            // }else{
+                // throw new Exception('Inserire un range corretto');
+            // }
+           
         }
 
         // Getter
