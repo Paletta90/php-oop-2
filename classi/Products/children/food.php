@@ -1,6 +1,6 @@
 <?php 
 
-    include __DIR__ . './../index.php';
+    // include __DIR__ . './../products.php';
 
     class Food extends Products{
         public $expiryDate;
@@ -33,12 +33,5 @@
             return $this -> calorie;
         }
     }
-
-    $crocchette = new Food('Crocchette per cani', 25, '05-2023', 1200);
-
-    echo '<p>Nome prodotto: ' . $crocchette -> getName() . '</p>';
-    echo '<p>Prezzo: ' . $crocchette -> getPrice() . '$</p>';
-    echo '<p>Scadenza: ' . $crocchette -> getExpiryDate() . '</p>';
-    echo '<p>Consumo: ' . $crocchette -> getCalorie() . 'Kcal</p>';
 
 ?>
